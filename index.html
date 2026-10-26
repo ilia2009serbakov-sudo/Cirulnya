@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e9e4dc">
+    <meta name="description" content="Цирюльня — барбершоп в Чайковском. Барбер со стажем более 7 лет. Запись онлайн или по телефону.">
+    <title>Цирюльня — барбершоп в Чайковском</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==============================
+           1. Базовые настройки и цвета
+        ============================== */
+        :root {
+            --paper: #e9e4dc;
+            --paper-light: #f5f1eb;
+            --ink: #242321;
+            --muted: #716d66;
+            --red: #a7352a;
+            --red-dark: #7f251e;
+            --line: rgba(36, 35, 33, 0.2);
+            --display: "Oswald", Impact, sans-serif;
+            --body: "DM Sans", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--body);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1160px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+        }
+
+        /* ==============================
+           2. Верхняя строка и навигация
+        ============================== */
+        .topbar {
+            background: var(--red);
+            color: var(--paper-light);
+            padding: 9px 0;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+        }
+
+        .topbar-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .topbar p {
+            margin: 0;
+        }
+
+        .header {
+            position: relative;
+            z-index: 10;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .navigation {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--display);
+            font-size: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-mark {
+            display: grid;
+            place-items: center;
+            width: 42px;
+            height: 42px;
+            background: var(--ink);
+            color: var(--paper-light);
+            font-size: 25px;
+            transform: rotate(-7deg);
+        }
+
+        .logo small {
+            display: block;
+            margin-top: 1px;
+            font-family: var(--body);
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .nav-links a:hover {
+            color: var(--red);
+        }
+
+        .nav-booking {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            padding: 14px 17px;
+            background: var(--ink);
+            color: var(--paper-light);
+            font-size: 12px;
+            font-weight: 700;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .nav-booking:hover {
+            background: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .menu-button {
+            display: none;
+            width: 43px;
+            height: 43px;
+            border: 1px solid var(--line);
+            background: transparent;
+            cursor: pointer;
+            font-size: 21px;
+        }
+
+        /* ==============================
+           3. Первый экран
+        ============================== */
+        .hero {
+            padding: 50px 0 78px;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 23px;
+            color: var(--red);
+        }
+
+        .hero-label::before {
+            content: "";
+            display: block;
+            width: 31px;
+            height: 2px;
+            background: var(--red);
+        }
+
+        h1, h2, h3, p {
+            overflow-wrap: break-word;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: var(--display);
+            font-size: clamp(66px, 9vw, 118px);
+            font-weight: 600;
+            line-height: 0.88;
+            letter-spacing: -0.045em;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            display: block;
+            color: var(--red);
+        }
+
+        .hero-description {
+            max-width: 420px;
+            margin: 28px 0 25px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.85;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .button {
+            display: inline-flex;
+            min-height: 52px;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            padding: 0 20px;
+            border: 1px solid var(--ink);
+            font-size: 12px;
+            font-weight: 700;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            border-color: var(--red);
+            background: var(--red);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: var(--red-dark);
+        }
+
+        .button-secondary {
+            background: transparent;
+        }
+
+        .button-secondary:hover {
+            background: var(--ink);
+            color: var(--paper-light);
+        }
+
+        .hero-note {
+            margin-top: 19px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* Иллюстрация сделана CSS-формами, без выдуманных фотографий */
+        .hero-art {
+            position: relative;
+            min-height: 480px;
+            display: grid;
+            place-items: center;
+        }
+
+        .poster-backdrop {
+            position: absolute;
+            inset: 8px 18px 12px 0;
+            background: #c9c0b4;
+            transform: rotate(4deg);
+        }
+
+        .poster {
+            position: relative;
+            width: 82%;
+            min-height: 420px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--red);
+            color: #f5eee5;
+            transform: rotate(-3deg);
+            box-shadow: 10px 12px 0 rgba(36, 35, 33, 0.1);
+        }
+
+        .poster-top,
+        .poster-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .poster-top {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+        }
+
+        .poster-symbol {
+            font-family: var(--display);
+            font-size: 76px;
+            line-height: 0.8;
+            font-weight: 400;
+        }
+
+        .poster-title {
+            margin: 15px 0;
+            font-family: var(--display);
+            font-size: clamp(43px, 5.4vw, 70px);
+            line-height: 0.93;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+        }
+
+        .poster-title em {
+            font-family: Georgia, serif;
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        .poster-bottom {
+            align-items: flex-end;
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        .poster-bottom strong {
+            font-family: var(--display);
+            font-size: 22px;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .round-stamp {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: grid;
+            place-items: center;
+            width: 92px;
+            height: 92px;
+            border: 1px solid var(--ink);
+            border-radius: 50%;
+            background: var(--paper-light);
+            color: var(--ink);
+            text-align: center;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 1.4;
+            transform: rotate(8deg);
+        }
+
+        .art-caption {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            color: var(--red);
+            font-family: Georgia, serif;
+            font-size: 16px;
+            font-style: italic;
+            transform: rotate(-7deg);
+        }
+
+        /* ==============================
+           4. Информационная полоса
+        ============================== */
+        .info-strip {
+            border-block: 1px solid var(--ink);
+            background: var(--ink);
+            color: var(--paper-light);
+        }
+
+        .info-strip-inner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .info-item {
+            min-height: 104px;
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            padding: 22px 25px;
+            border-right: 1px solid rgba(245, 241, 235, 0.2);
+        }
+
+        .info-item:first-child {
+            border-left: 1px solid rgba(245, 241, 235, 0.2);
+        }
+
+        .info-number {
+            color: #d8a69d;
+            font-family: var(--display);
+            font-size: 34px;
+            line-height: 1;
+        }
+
+        .info-item p {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #d0cbc3;
+        }
+
+        .info-item strong {
+            display: block;
+            color: white;
+            font-size: 13px;
+        }
+
+        /* ==============================
+           5. О барбере
+        ============================== */
+        .about {
+            padding: 105px 0;
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .section-kicker {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--red);
+        }
+
+        .section-kicker::before {
+            content: "✳";
+            font-size: 20px;
+        }
+
+        h2 {
+            margin: 0;
+            font-family: var(--display);
+            font-size: clamp(44px, 6vw, 76px);
+            font-weight: 500;
+            line-height: 0.98;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+        }
+
+        h2 em {
+            color: var(--red);
+            font-family: Georgia, serif;
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        .about-copy {
+            max-width: 620px;
+            margin-left: auto;
+        }
+
+        .about-copy .lead {
+            margin: 0 0 22px;
+            font-size: 20px;
+            line-height: 1.55;
+        }
+
+        .about-copy p:not(.lead) {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .about-rule {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .about-rule span {
+            color: var(--red);
+            font-size: 24px;
+        }
+
+        /* ==============================
+           6. Запись на стрижку
+        ============================== */
+        .booking-section {
+            padding: 0 0 105px;
+        }
+
+        .booking-panel {
+            display: grid;
+            grid-template-columns: 1fr 0.7fr;
+            background: var(--red);
+            color: var(--paper-light);
+        }
+
+        .booking-copy {
+            padding: 54px;
+        }
+
+        .booking-copy .eyebrow {
+            color: #f1c5bd;
+        }
+
+        .booking-copy h2 {
+            margin-top: 23px;
+            max-width: 650px;
+            font-size: clamp(43px, 6vw, 75px);
+        }
+
+        .booking-copy h2 em {
+            color: #f1c5bd;
+        }
+
+        .booking-copy p {
+            max-width: 420px;
+            color: #f0d9d4;
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 22px 0 26px;
+        }
+
+        .booking-copy .button {
+            background: var(--paper-light);
+            border-color: var(--paper-light);
+            color: var(--ink);
+        }
+
+        .booking-copy .button:hover {
+            background: white;
+        }
+
+        .booking-side {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 35px;
+            border-left: 1px solid rgba(245, 241, 235, 0.28);
+            overflow: hidden;
+        }
+
+        .booking-side::after {
+            content: "Ц";
+            position: absolute;
+            right: -28px;
+            bottom: -80px;
+            font-family: var(--display);
+            font-size: 340px;
+            line-height: 1;
+            color: rgba(245, 241, 235, 0.09);
+        }
+
+        .booking-side p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.8;
+            color: #f0d9d4;
+        }
+
+        .booking-side .big-time {
+            position: relative;
+            z-index: 1;
+            font-family: var(--display);
+            font-size: clamp(46px, 5vw, 70px);
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+
+        /* ==============================
+           7. Контакты и подвал
+        ============================== */
+        .contacts {
+            padding: 0 0 85px;
+        }
+
+        .contacts-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 25px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .contacts-heading h2 {
+            font-size: clamp(44px, 6vw, 72px);
+        }
+
+        .contacts-heading p {
+            max-width: 280px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .contact-card {
+            min-height: 170px;
+            padding: 25px;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .contact-card:first-child {
+            border-left: 1px solid var(--line);
+        }
+
+        .contact-card .eyebrow {
+            color: var(--muted);
+        }
+
+        .contact-card strong {
+            display: block;
+            margin: 22px 0 10px;
+            font-family: var(--display);
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        .contact-card a {
+            display: inline-block;
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 700;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 3px;
+        }
+
+        .footer {
+            padding: 23px 0;
+            background: var(--ink);
+            color: var(--paper-light);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer p {
+            margin: 0;
+            color: #c3beb5;
+            font-size: 11px;
+        }
+
+        .footer-brand {
+            font-family: var(--display);
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .footer a {
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* ==============================
+           8. Появление элементов при скролле
+        ============================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==============================
+           9. Адаптация для планшетов
+        ============================== */
+        @media (max-width: 850px) {
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .nav-booking {
+                padding: 12px;
+            }
+
+            .hero-layout {
+                grid-template-columns: 1fr 0.9fr;
+                gap: 18px;
+            }
+
+            .hero-art {
+                min-height: 400px;
+            }
+
+            .poster {
+                width: 87%;
+                min-height: 360px;
+                padding: 20px;
+            }
+
+            .poster-symbol {
+                font-size: 58px;
+            }
+
+            .about-layout {
+                gap: 35px;
+            }
+
+            .booking-copy {
+                padding: 38px;
+            }
+
+            .booking-side {
+                padding: 28px;
+            }
+        }
+
+        /* ==============================
+           10. Адаптация для телефонов
+        ============================== */
+        @media (max-width: 640px) {
+            .container {
+                width: calc(100% - 32px);
+            }
+
+            .topbar-inner {
+                font-size: 10px;
+            }
+
+            .topbar-inner p:last-child {
+                text-align: right;
+            }
+
+            .navigation {
+                min-height: 70px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav-booking {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 12px 16px 18px;
+                background: var(--paper-light);
+                border-bottom: 1px solid var(--line);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 14px 0;
+                border-bottom: 1px solid var(--line);
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 35px 0 52px;
+            }
+
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            h1 {
+                font-size: clamp(67px, 17vw, 94px);
+            }
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+            .hero-art {
+                min-height: 365px;
+                margin-top: 8px;
+            }
+
+            .poster {
+                width: 78%;
+                min-height: 320px;
+            }
+
+            .poster-title {
+                font-size: clamp(43px, 12vw, 61px);
+            }
+
+            .round-stamp {
+                width: 76px;
+                height: 76px;
+                font-size: 9px;
+            }
+
+            .art-caption {
+                font-size: 13px;
+            }
+
+            .info-strip-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .info-item {
+                min-height: 78px;
+                padding: 16px 8px;
+                border-right: 0;
+                border-bottom: 1px solid rgba(245, 241, 235, 0.2);
+            }
+
+            .info-item:first-child {
+                border-left: 0;
+            }
+
+            .info-number {
+                width: 50px;
+                flex-shrink: 0;
+                font-size: 30px;
+            }
+
+            .about {
+                padding: 72px 0;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            h2 {
+                font-size: clamp(44px, 12vw, 62px);
+            }
+
+            .about-copy .lead {
+                font-size: 18px;
+            }
+
+            .about-copy p:not(.lead) {
+                font-size: 13px;
+            }
+
+            .booking-section {
+                padding-bottom: 72px;
+            }
+
+            .booking-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-copy {
+                padding: 30px 23px;
+            }
+
+            .booking-copy h2 {
+                font-size: clamp(43px, 12vw, 62px);
+            }
+
+            .booking-side {
+                min-height: 180px;
+                border-left: 0;
+                border-top: 1px solid rgba(245, 241, 235, 0.28);
+                padding: 23px;
+            }
+
+            .booking-side .big-time {
+                font-size: 55px;
+                margin-top: 25px;
+            }
+
+            .contacts {
+                padding-bottom: 60px;
+            }
+
+            .contacts-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card,
+            .contact-card:first-child {
+                min-height: 140px;
+                padding: 21px 8px;
+                border-left: 0;
+                border-right: 0;
+            }
+
+            .contact-card strong {
+                margin: 14px 0 8px;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        /* Учитываем системную настройку уменьшения анимации */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Короткая строка с городом и стажем -->
+    <div class="topbar">
+        <div class="container topbar-inner">
+            <p>Чайковский · Барбершоп</p>
+            <p>Более 7 лет в профессии</p>
+        </div>
+    </div>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container navigation">
+            <a class="logo" href="#top" aria-label="Цирюльня — главная">
+                <span class="logo-mark">Ц</span>
+                <span>
+                    Цирюльня
+                    <small>BARBER SHOP · ЧАЙКОВСКИЙ</small>
+                </span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#about">О барбере</a>
+                <a href="#booking">Запись</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+
+            <a
+                class="nav-booking"
+                href="https://mst.link/barbershopciryln4"
+                target="_blank"
+                rel="noopener"
+            >
+                Записаться онлайн <span>↗</span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Открыть меню"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <main id="top">
+        <!-- Первый экран: название и запись -->
+        <section class="hero">
+            <div class="container hero-layout">
+                <div class="hero-copy reveal">
+                    <div class="hero-label eyebrow">
+                        Мужские стрижки · Чайковский
+                    </div>
+
+                    <h1>
+                        Хорошая<br>
+                        стрижка.<br>
+                        <span>Точка.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        «Цирюльня» — барбершоп, где за дело отвечает барбер
+                        со стажем более 7 лет. Выберите удобное время и
+                        запишитесь онлайн или по телефону.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a
+                            class="button button-primary"
+                            href="https://mst.link/barbershopciryln4"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Записаться онлайн <span>↗</span>
+                        </a>
+
+                        <a class="button button-secondary" href="tel:+79223111082">
+                            Позвонить <span>↗</span>
+                        </a>
+                    </div>
+
+                    <p class="hero-note">
+                        Ежедневно с 10:00 до 22:00
+                    </p>
+                </div>
+
+                <!-- Графический постер вместо стоковой фотографии -->
+                <div class="hero-art reveal" aria-label="Постер Цирюльни">
+                    <div class="poster-backdrop"></div>
+
+                    <div class="poster">
+                        <div class="poster-top">
+                            <span>ЦИРЮЛЬНЯ / ЧАЙКОВСКИЙ</span>
+                            <span>№ 001</span>
+                        </div>
+
+                        <div class="poster-symbol">Ц.</div>
+
+                        <div class="poster-title">
+                            Свой<br>
+                            стиль.<br>
+                            <em>Свои правила.</em>
+                        </div>
+
+                        <div class="poster-bottom">
+                            <span>
+                                Точность в деталях.<br>
+                                Внимание к человеку.
+                            </span>
+                            <strong>10:00<br>— 22:00</strong>
+                        </div>
+                    </div>
+
+                    <div class="round-stamp">
+                        BARBER<br>
+                        OVER<br>
+                        7 YEARS
+                    </div>
+
+                    <div class="art-caption">Время привести себя в порядок.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Три главных факта о барбершопе -->
+        <section class="info-strip" aria-label="Информация о барбершопе">
+            <div class="container info-strip-inner">
+                <div class="info-item">
+                    <span class="info-number">07+</span>
+                    <p>
+                        <strong>Лет опыта</strong>
+                        Барбер со стажем более семи лет
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-number">12</span>
+                    <p>
+                        <strong>Часов в день</strong>
+                        Работаем с 10:00 до 22:00
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-number">↗</span>
+                    <p>
+                        <strong>Онлайн-запись</strong>
+                        Выберите удобное время по ссылке
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Информация о мастере -->
+        <section class="about" id="about">
+            <div class="container about-layout">
+                <div class="reveal">
+                    <div class="section-kicker eyebrow">О мастере</div>
+                    <h2>
+                        Опыт<br>
+                        виден в<br>
+                        <em>деталях.</em>
+                    </h2>
+                </div>
+
+                <div class="about-copy reveal">
+                    <p class="lead">
+                        Более семи лет в профессии — это опыт, внимание к форме
+                        и понимание того, насколько важны детали.
+                    </p>
+
+                    <p>
+                        В «Цирюльне» можно записаться к барберу в удобное время.
+                        Чтобы уточнить доступные услуги, их стоимость и длительность,
+                        воспользуйтесь онлайн-записью или свяжитесь с мастером напрямую.
+                    </p>
+
+                    <div class="about-rule">
+                        <span>✳</span>
+                        <span>Чёткий график. Удобная запись. Опытный барбер.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Большой блок с призывом записаться -->
+        <section class="booking-section" id="booking">
+            <div class="container booking-panel">
+                <div class="booking-copy reveal">
+                    <div class="eyebrow">Выберите время для себя</div>
+
+                    <h2>
+                        В кресло.<br>
+                        За <em>своим</em><br>
+                        стилем.
+                    </h2>
+
+                    <p>
+                        Откройте онлайн-запись, посмотрите доступные слоты
+                        и выберите подходящее время. Это займёт всего несколько минут.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="https://mst.link/barbershopciryln4"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Перейти к записи <span>↗</span>
+                    </a>
+                </div>
+
+                <div class="booking-side">
+                    <p class="eyebrow">График работы</p>
+                    <div class="big-time">10:00<br>— 22:00</div>
+                    <p>
+                        Ежедневно<br>
+                        г. Чайковский
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контактные данные -->
+        <section class="contacts" id="contacts">
+            <div class="container">
+                <div class="contacts-heading reveal">
+                    <div>
+                        <div class="section-kicker eyebrow">Контакты</div>
+                        <h2>На связи.</h2>
+                    </div>
+
+                    <p>
+                        Запишитесь онлайн или позвоните. Также можно посмотреть
+                        страницу барбера во ВКонтакте.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-card reveal">
+                        <div class="eyebrow">Телефон для записи</div>
+                        <strong>+7 922 311-10-82</strong>
+                        <a href="tel:+79223111082">Позвонить ↗</a>
+                    </div>
+
+                    <div class="contact-card reveal">
+                        <div class="eyebrow">Онлайн-запись</div>
+                        <strong>Выбрать время</strong>
+                        <a
+                            href="https://mst.link/barbershopciryln4"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Открыть запись ↗
+                        </a>
+                    </div>
+
+                    <div class="contact-card reveal">
+                        <div class="eyebrow">Страница барбера</div>
+                        <strong>ВКонтакте</strong>
+                        <a
+                            href="https://vk.ru/eliseibarber"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Перейти в VK ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">Цирюльня.</div>
+            <p>Барбершоп · г. Чайковский · 10:00–22:00</p>
+            <a href="#top">Наверх ↑</a>
+        </div>
+    </footer>
+
+    <script>
+        // Находим кнопку меню и само меню навигации.
+        const menuButton = document.getElementById("menuButton");
+        const navLinks = document.getElementById("navLinks");
+
+        // Открываем и закрываем меню на маленьких экранах.
+        menuButton.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+
+            menuButton.setAttribute("aria-expanded", String(isOpen));
+            menuButton.textContent = isOpen ? "×" : "☰";
+        });
+
+        // После выбора пункта меню закрываем мобильную навигацию.
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+                menuButton.setAttribute("aria-expanded", "false");
+                menuButton.textContent = "☰";
+            });
+        });
+
+        // Показываем блоки, когда пользователь до них прокручивает страницу.
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        document.querySelectorAll(".reveal").forEach((element) => {
+            revealObserver.observe(element);
+        });
+    </script>
+</body>
+</html>
